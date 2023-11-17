@@ -29,7 +29,7 @@ public class Demandesociete {
         generator = "demandesociete_sequence"
     )
     Long iddemandesociete ;
-    Long idTypedepayement ;
+    Long idtypedepayement ;
     Date datedemande ;
     Date delait ;
     Long validationsup;

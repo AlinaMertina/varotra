@@ -32,7 +32,7 @@ public class Reponsefourniseur {
     Long iddemandesociete ;
     Long idfourniseur ;
     Long iduniter ;
-    Long prixunitaireachat ;
+    Double prixunitaireachat ;
     Double tva ;
     Double quantiterdisponible ;
 }

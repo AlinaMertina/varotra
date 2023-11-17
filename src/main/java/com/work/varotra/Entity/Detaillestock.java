@@ -33,5 +33,5 @@ public class Detaillestock {
     Long idstock ;
     Long idclient ;
     Date datedelivraison ;
-    Long idTypedepayement ;
+    Long idtypedepayement ;
 }

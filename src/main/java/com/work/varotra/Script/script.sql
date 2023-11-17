@@ -76,7 +76,7 @@ create table demandeclientfourniseur(
 
 create table demandesociete(
     iddemandesociete bigint primary key,
-    idTypedepayement bigint,
+    idtypedepayement bigint,
     datedemande TIMESTAMP,
     delait TIMESTAMP,
     validationsup bigint,
