@@ -42,11 +42,11 @@
   <div class="col-lg-12" style="float: right;display: block;">
     <ul>
         <a href="/fourniseur/produit" > <li> <i class="mdi mdi-chevron-left"></i>   </li> </a>
-        <a href="#" > <li> <i class="mdi mdi-close"></i>  </li> </a>
+        <a href="/fourniseur/accuille" > <li> <i class="mdi mdi-close"></i>  </li> </a>
     </ul>
   </div>
 
-  <div class="col-6" style="float: right;">
+  <div class="col-8" style="float: right;">
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">Ajout nouveau produit</h4>
@@ -59,12 +59,23 @@
 
           <label class="sr-only" for="inlineFormInputName2">Nom</label>
           <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="nomproduit">
+
+         
+            <label for="exampleFormControlSelect1" name="uniter">Uniter</label>
+            <select class="form-control form-control-lg" id="exampleFormControlSelect1" name="iduniter">
+              <option th:each="uniter : ${listeuniter}" 
+              th:value="${uniter.iduniter}" 
+              th:text="${uniter.nomuniter}"></option>
+
+            </select>
+          
+
           <button type="submit" class="btn btn-primary mb-2">Valider</button>
         </form>
       </div>
     </div>
   </div>
-  <div class="col-6">
+  <div class="col-4">
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">Recherche Produit</h4>  
@@ -92,51 +103,24 @@
                 <th>Nom Produit</th>
                 <th>Uniter Principale</th>
                 <th>Quantier Restant</th>
-                <th>Prix moyen</th>
-                <th>TVA</th>
+               
                 <th>Detaille</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>Pate</td>
-                <td>Carton</td>
-                <td>20</td>
-                <td>100 AR</td>
-                <td>100 AR</td>
+              <tr th:each="produit : ${listeproduit}">
+                <td th:text="${produit.idproduit}"></td>
+                <td th:text="${produit.nomproduit}"></td>
+                <td th:text="${produit.nomuniter}"></td>
+                <td th:text="${produit.quantiterestant}"></td>
+                <!-- <td th:text="${produit.prixmoyenne}"></td>
+                <td th:text="${produit.tvamoyenne}"></td> -->
                 <td>
-                  <a href="/fourniseur/detailleproduit">
+                  <a th:href="@{/fourniseur/detailleproduit(idproduit=${produit.idproduit})}">
                     <div class="col-sm-6 col-md-4 col-lg-3">
                       <i class="mdi mdi-format-list-bulleted"></i> 
                     </div>
                   </a>
-                </td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>Pate</td>
-                <td>Carton</td>
-                <td>20</td>
-                <td>100 AR</td>
-                <td>100 AR</td>
-                <td>
-                  <div class="col-sm-6 col-md-4 col-lg-3">
-                    <i class="mdi mdi-format-list-bulleted"></i> 
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>Pate</td>
-                <td>Carton</td>
-                <td>20</td>
-                <td>100 AR</td>
-                <td>100 AR</td>
-                <td>
-                  <div class="col-sm-6 col-md-4 col-lg-3">
-                    <i class="mdi mdi-format-list-bulleted"></i> 
-                  </div>
                 </td>
               </tr>
             </tbody>

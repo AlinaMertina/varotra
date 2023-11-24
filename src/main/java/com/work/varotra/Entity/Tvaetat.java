@@ -10,28 +10,27 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Fourniseur {
-    
+public class Tvaetat {
+
     @Id
     @SequenceGenerator(
-        name = "fourniseur_sequence",
-        sequenceName = "fourniseur_sequence",
+        name = "tvaetat_sequence",
+        sequenceName = "tvaetat_sequence",
         allocationSize = 1
     )
     @GeneratedValue(
         strategy = GenerationType.SEQUENCE,
-        generator = "fourniseur_sequence"
+        generator = "tvaetat_sequence"
     )
-    Long idfourniseur ;
-    String nomfourniseur ;
-    String numerofournieur;
-    String address;
-    String tel;
-    String email;
+    Long idtva;
+    Double valeur;
+    java.util.Date datetva;
     
 }

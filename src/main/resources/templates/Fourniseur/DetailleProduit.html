@@ -40,7 +40,7 @@
     <div class="col-lg-6" style="float: right;display: block;">
         <ul>
             <a href="/fourniseur/produit" > <li> <i class="mdi mdi-chevron-left"></i>   </li> </a>
-            <a href="#" > <li> <i class="mdi mdi-close"></i>  </li> </a>
+            <a href="/fourniseur/accuille" > <li> <i class="mdi mdi-close"></i>  </li> </a>
         </ul>
     </div>
   <div class="col-lg-12 grid-margin stretch-card">
@@ -51,41 +51,21 @@
           <table class="table table-bordered">
             <thead>
               <tr>
-                <th>#</th>
+                <th>Description</th>
                 <th>Date Entre</th>
-                <th>Quantiter Initiale</th>
-                <th>Quantiter Restante</th>
+                <th>Quantiter</th>
                 <th>Prix Achat</th>
                 <th>Prix De Vente</th>
-                <th>TVA</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>2023-11-05</td>
-                <td>Carton</td>
-                <td>20</td>
-                <td>100 AR</td>
-                <td>100 AR</td>
+              <tr th:each="produit : ${listedetaille}">
+                <td th:text="${produit.idaction == 1 ? 'Entrée' : 'Sortie'}"></td>
+                <td th:text="${produit.date}"></td>
+                <td th:text="${produit.quantiter}"></td>
+                <td th:text="${produit.prixunitaireachat}"></td>
+                <td th:text="${produit.prixunitairevente}"></td>
               </tr>
-              <tr>
-                <td>1</td>
-                <td>2023-11-05</td>
-                <td>Carton</td>
-                <td>20</td>
-                <td>100 AR</td>
-                <td>100 AR</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>2023-11-05</td>
-                <td>Carton</td>
-                <td>20</td>
-                <td>100 AR</td>
-                <td>100 AR</td>
-              </tr>
-
             </tbody>
           </table>
         </div>

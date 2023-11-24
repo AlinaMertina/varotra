@@ -41,8 +41,8 @@
 <body>
   <div class="col-lg-12" style="float: right;display: block;">
     <ul>
-        <a href="/fourniseur/produit" > <li> <i class="mdi mdi-chevron-left"></i>   </li> </a>
-        <a href="#" > <li> <i class="mdi mdi-close"></i>  </li> </a>
+        <a href="/fourniseur/accuille" > <li> <i class="mdi mdi-chevron-left"></i>   </li> </a>
+        <a href="/fourniseur/accuille" > <li> <i class="mdi mdi-close"></i>  </li> </a>
     </ul>
   </div>
 
@@ -51,54 +51,69 @@
       <div class="card-body">
         <h4 class="card-title">Tout Produit</h4>
         <div class="table-responsive pt-3">
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Nom Client</th>
-                <th>Date Commande</th>
-                <th>Detaille</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Mertina</td>
-                <td>2023-11-05</td>
-                <td>
-                  <a href="/fourniseur/detailledemandeclient">
-                    <div class="col-sm-6 col-md-4 col-lg-3">
-                      <i class="mdi mdi-format-list-bulleted"></i> 
-                    </div>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>Mertina</td>
-                <td>2023-11-05</td>
-                <td>
-                  <a href="/fourniseur/detailledemandeclient">
-                    <div class="col-sm-6 col-md-4 col-lg-3">
-                      <i class="mdi mdi-format-list-bulleted"></i> 
-                    </div>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>Mertina</td>
-                <td>2023-11-05</td>
-                <td>
-                  <a href="/fourniseur/detailledemandeclient">
-                    <div class="col-sm-6 col-md-4 col-lg-3">
-                      <i class="mdi mdi-format-list-bulleted"></i> 
-                    </div>
-                  </a>
-                </td>
-              </tr>
+          
+        <table class="table table-bordered">
+          <thead>
+            <tr>
               
-              
+              <th>Nom Client</th>
+              <th>Nom produit</th>
+              <th>Uniter</th>
+              <th>Nom type payement</th>
+              <th>Quantiter</th>
+              <th>Prix Vente</th>
+              <th>TVA</th>
+              <th>Prix ttc</th>
+              <th>Prix total</th>
+              <th>Date commande</th>
+              <th>Date delait</th>
+              <th>Valider</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <form  th:action="@{/fourniseur/valider}" method="get">
+              <tr th:each="produit : ${listedemande}">
+                <td th:text="${produit.nomclient}"></td>
+                <td th:text="${produit.nomproduit}"></td>
+                <td th:text="${produit.nomuniter}"></td>
+                <td th:text="${produit.nomtypepayement}"></td>
+                <td th:text="${produit.quantiter}"></td>
+                <td th:text="${produit.prixvente}"></td>
+                <td th:text="${produit.tva}"></td>
+                <td th:text="${produit.prixttc}"></td>
+                <td th:text="${produit.prixtotal}"></td>
+                <td th:text="${produit.datecommande}"></td>
+                <td th:text="${produit.datedelait}"></td>
+                <input type="hidden" name  />
+                <td>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input" name="idstock[]"  th:value="${produit.idstock}" checked>
+                    </label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <input type="submit" value="Valider"  class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" >
+                </td>
+              </tr>
+
+            </form>
+            
+
             </tbody>
           </table>
         </div>

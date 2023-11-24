@@ -38,4 +38,6 @@ public class Stock {
     Double prixunitaireachat;
     Double prixunitairevente ;
     Date date;
+    Long idfstock;
+    Long iddemandesociete;
 }

@@ -29,4 +29,7 @@ public class Client {
     Long idclient;
     String nomclient;
     String numeroclient;
+    String address;
+    String tel;
+    String email;
 }

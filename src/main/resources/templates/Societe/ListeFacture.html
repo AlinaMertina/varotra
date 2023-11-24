@@ -6,7 +6,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Detaille Demande Supe 1</title>
+  <title>Sortie</title>
   <!-- plugins:css -->
   <link rel="stylesheet"  th:href="@{/assets/vendors/feather/feather.css}" type="text/css" >
   <link rel="stylesheet"  th:href="@{/assets/vendors/ti-icons/css/themify-icons.css}" type="text/css" >
@@ -41,11 +41,11 @@
 <body>
   <div class="col-lg-12" style="float: right;display: block;">
     <ul>
-        <a href="/societefront/detailledemande" > <li> <i class="mdi mdi-chevron-left"></i>   </li> </a>
+        <a href="/societefront/accuille" > <li> <i class="mdi mdi-chevron-left"></i>   </li> </a>
         <a href="/societefront/accuille" > <li> <i class="mdi mdi-close"></i>  </li> </a>
     </ul>
   </div>
-  
+
   <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
@@ -54,38 +54,24 @@
           <table class="table table-bordered">
             <thead>
               <tr>
-                <th>#</th>
-                <th>Nom Produit</th>
-                <th>Quantier</th>
-                <th>Uniter</th>
-                <th>Valider</th>
+                <th>Nom Fourniseur</th>
+                <th>Date Facturation</th>
+                <th>Detaille</th>              
               </tr>
             </thead>
             <tbody>
-              <tr th:each="produit : ${detailledemande}">
-                <td></td>
-                <td th:text="${produit.nomproduit}"></td>
-                <td th:text="${produit.quantier}"></td>
-                <td th:text="${produit.uniter}"></td>
-
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-
+              <tr th:each="demande : ${listedemande}">
+                <td th:text="${demande.nomfourniseur}"></td>
+                <td th:text="${demande.date}"></td>
                 <td>
-
-                  <form th:action="@{/societefront/validedemandesup1}" method="post">
-                    <input type="hidden" name="iddemandesociete" th:value="${detailledemande[0].iddemandesociete}">
-                    <input type="hidden" name="typepayement" value="0">
-                    <input type="submit" value="Valider"  class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" >
-                  </form>
-
+                  <a th:href="@{/societefront/facture(iddemandesociete=${demande.iddemandesociete},idfourniseur=${demande.idfourniseur})}">
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                      <i class="mdi mdi-format-list-bulleted"></i> 
+                    </div>
+                  </a>
                 </td>
               </tr>
+              
             </tbody>
           </table>
         </div>

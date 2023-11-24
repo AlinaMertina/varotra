@@ -29,4 +29,5 @@ public class Produit {
     Long idproduit ;
     String nomproduit;
     String numproduit ;
+    Long iduniter;
 }

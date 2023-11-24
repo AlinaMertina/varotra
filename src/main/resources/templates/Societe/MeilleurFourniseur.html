@@ -54,73 +54,66 @@
           <table class="table table-bordered">
             <thead>
               <tr>
-                <th>#</th>
+                <th>Voir Proformat</th>
                 <th>Nom Fourniseur</th>
                 <th>Nom Produit</th>
                 <th>Uniter</th>
                 <th>Quantier Disponible</th>
-                <th>Prix UNitaire</th>
+                <th>Prix Unitaire</th>
                 <th>TVA</th>
                 <th>Prix TTC</th>
-                <th>Proforma du fourniseur</th>
+                <th>Prix Total</th>
+
+                <!-- <th>Proforma du fourniseur</th> -->
               </tr>
             </thead>
             <tbody>
+              <tr th:each="fourniseur : ${meilleur}">
+
+                  <td>
+                    <a th:href="@{/societefront/proformat(iddemandesociete=${iddemandesociete},idfourniseur=${fourniseur.idfourniseur})}">
+                      <div class="col-sm-6 col-md-4 col-lg-3">
+                        <i class="mdi mdi-format-list-bulleted"></i> 
+                      </div>
+                    </a>
+                  </td>
+                <td th:text="${fourniseur.nomfourniseur}"></td>
+                <td th:text="${fourniseur.nomproduit}"></td>
+                <td th:text="${fourniseur.uniter}"></td>
+                <td th:text="${fourniseur.quantiter}"></td>
+                <td th:text="${fourniseur.prix}"></td>
+                <td th:text="${fourniseur.tva}"></td>
+                <td th:text="${fourniseur.prixttc}"></td>
+                <td th:text="${fourniseur.prixtotal}"></td>
+              </tr>
+            <form th:action="@{/societefront/validedemandesup1}" method="post">
               <tr>
-                <td>1</td>
-                <td>Mertina</td>
-                <td>Vari</td>
-                <td>piece</td>
-                <td>20</td>
-                <td>100 AR</td>
-                <td>100 AR</td>
                 <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Type de payement</td>
                 <td>
-                  <a href="/societefront/proformat">
-                    <div class="col-sm-6 col-md-4 col-lg-3">
-                      <i class="mdi mdi-format-list-bulleted"></i> 
-                    </div>
-                  </a>
+                  <select class="form-control form-control-lg" id="exampleFormControlSelect1" name="typepayement">
+                    <option th:each="type : ${typepayement}" 
+                    th:value="${type.idtypedepayement}" 
+                    th:text="${type.nompayement}"></option>
+                  </select>
+                </td>
+                <td>
+
+                 
+                    <input type="hidden" name="iddemandesociete" th:value="${meilleur[0].iddemandesociete}">
+                    <input type="submit" value="Valider"  class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" >
+                
+
                 </td>
               </tr>
-              <tr>
-                <td>1</td>
-                <td>Mertina</td>
-                <td>Vari</td>
-                <td>piece</td>
-                <td>20</td>
-                <td>100 AR</td>
-                <td>100 AR</td>
-                <td></td>
-                <td>
-                  <a href="#">
-                    <div class="col-sm-6 col-md-4 col-lg-3">
-                      <i class="mdi mdi-format-list-bulleted"></i> 
-                    </div>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>Mertina</td>
-                <td>Vari</td>
-                <td>piece</td>
-                <td>20</td>
-                <td>100 AR</td>
-                <td>100 AR</td>
-                <td></td>
-                <td>
-                  <a href="#">
-                    <div class="col-sm-6 col-md-4 col-lg-3">
-                      <i class="mdi mdi-format-list-bulleted"></i> 
-                    </div>
-                  </a>
-                </td>
-              </tr>
-              
-             
-              
-              
+            </form>
+
             </tbody>
           </table>
         </div>

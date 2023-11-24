@@ -29,6 +29,14 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.pdfbox</groupId>
+			<artifactId>pdfbox</artifactId>
+			<version>2.0.24</version> <!-- Assurez-vous d'utiliser la dernière version disponible -->
+		</dependency>
+
+		
 
 		<dependency>
 			<groupId>org.postgresql</groupId>

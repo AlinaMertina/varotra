@@ -33,4 +33,7 @@ public class Employe {
     Long  idemploye ;
     String nomemployer ;
     Long idsupe ;
+    Long idclient;
+    Long iddepartement;
+    Long idfourniseur;
 }

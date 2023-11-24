@@ -40,5 +40,5 @@ public class Detailledemande {
     Long idclient ;
     Long iduniter ;
     Double quantiter ;
-    Date datedemande ;
+    
 }
